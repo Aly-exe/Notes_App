@@ -16,6 +16,10 @@ class CustomFloatingActionBottom extends StatelessWidget {
     ) , child: IconButton(onPressed: (){
       showModalBottomSheet(
         isScrollControlled: true,
+        scrollControlDisabledMaxHeightRatio: MediaQuery.of(context).size.height*.8,
+        showDragHandle: true,
+        useSafeArea: true,
+        sheetAnimationStyle: AnimationStyle(duration: Duration(milliseconds: 700),curve: Curves.easeInOut),
         context: context, builder: (context){
         return BottomSheetForm();
       });

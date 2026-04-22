@@ -17,23 +17,24 @@ class NoteBox extends StatelessWidget {
         borderRadius: BorderRadius.circular(16),
       ),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.end,
         children: [
            ListTile(
             title: Padding(
               padding: const EdgeInsets.only(bottom: 16),
               child: Text("Flutter tips" , style: TextStyle(
                 color: Colors.black ,
-                fontSize: 22,
+                fontSize: 26,
               ),),
             ),
             subtitle: Padding(            
-              padding: const EdgeInsets.only(bottom: 16.0),
+              padding: const EdgeInsets.symmetric(vertical: 16.0),
               child: Text("Build Your Career with Aly Raslan" , style: TextStyle(
-                fontSize: 20 ,
+                fontSize: 18 ,
                 color: Color.fromARGB(255, 112, 111, 73)
               ),),
             ),
-            trailing: IconButton(onPressed: (){}, icon: FaIcon(FontAwesomeIcons.trash , color: Colors.black, size: 28,)),
+            trailing: IconButton(onPressed: (){}, icon: FaIcon(FontAwesomeIcons.trash , color: Colors.black, size: 30,)),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,

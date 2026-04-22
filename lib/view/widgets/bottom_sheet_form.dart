@@ -28,14 +28,13 @@ class _BottomSheetFormState extends State<BottomSheetForm> {
               CustomTextFormField(
                 hintText: "title",
               ),
-              SizedBox(height: 10,),
+              const SizedBox(height: 10,),
               CustomTextFormField(
                 hintText: "content",
                 maxLines: 4,
               ),
               SizedBox(height: MediaQuery.of(context).size.height*.18,),
-        
-              CustomTextButton()
+              const CustomTextButton()
             ],
           ),
         ),
