@@ -1,7 +1,7 @@
 part of 'note_cubit.dart';
 
-@immutable
-sealed class NoteState {}
+
+class NoteState {}
 
 final class NoteInitial extends NoteState {}
 final class LoadingAddNoteState extends NoteState {}
@@ -15,5 +15,11 @@ final class SuccesfullEditNoteState extends NoteState {}
 final class failedEditNoteState extends NoteState {
     final String? errorMessage;
     failedEditNoteState(this.errorMessage);
+}
+final class SuccessGetAllNotes extends NoteState {}
+final class SuccesDeleteNoteState extends NoteState {}
+final class failedDeleteNoteState extends NoteState {
+    final String? errorMessage;
+    failedDeleteNoteState(this.errorMessage);
 }
 
