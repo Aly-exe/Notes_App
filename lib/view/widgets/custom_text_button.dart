@@ -4,13 +4,13 @@ import 'package:notes_app/core/colors.dart';
 
 class CustomTextButton extends StatelessWidget {
   const CustomTextButton({
-    super.key,
+    super.key, this.onTap,
   });
-
+  final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: (){},
+      onTap: onTap,
       child: Container(
         padding: EdgeInsets.all(8.0),
         width: double.infinity,

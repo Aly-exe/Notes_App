@@ -13,7 +13,8 @@ class BottomSheetForm extends StatefulWidget {
 
 class _BottomSheetFormState extends State<BottomSheetForm> {
   final  GlobalKey<FormState> formkey =GlobalKey();
-  bool autovalidateMode = false;
+   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
+  String? title , subtitle ;
 
   @override
   Widget build(BuildContext context) {
@@ -22,19 +23,49 @@ class _BottomSheetFormState extends State<BottomSheetForm> {
       child: SingleChildScrollView(
         child: Form(
           key:formkey,
-          autovalidateMode: AutovalidateMode.disabled,
+          autovalidateMode: autovalidateMode,
           child: Column(
             children: [
               CustomTextFormField(
                 hintText: "title",
+                onSaved: (value){
+                  title=value;
+                },
+                validate: (value){
+                  if(value?.isEmpty ?? true){
+                    return "Title Must be filled";
+                  }else{
+                    return null;
+                  }
+                },
               ),
               const SizedBox(height: 10,),
               CustomTextFormField(
                 hintText: "content",
                 maxLines: 4,
+                onSaved: (value){
+                  subtitle=value;
+                },
+                validate: (value){
+                  if(value?.isEmpty ?? true){
+                    return "Content Must be filled";
+                  }else{
+                    return null;
+                  }
+                },
               ),
               SizedBox(height: MediaQuery.of(context).size.height*.18,),
-              const CustomTextButton()
+               CustomTextButton(
+                onTap: (){
+                  if(formkey.currentState!.validate()){
+                    formkey.currentState!.save();
+                 }{
+                    autovalidateMode =AutovalidateMode.always;
+                    setState(() {
+                    });
+                  }
+                }
+              )
             ],
           ),
         ),
