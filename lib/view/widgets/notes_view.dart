@@ -14,7 +14,7 @@ class NotesView extends StatelessWidget {
       builder: (context, state) {
         List<NoteModel> notes = context.read<NoteCubit>().notes;
         return Expanded(
-          child: notes.length>=1
+          child: notes.length >= 1
               ? ListView.builder(
                   itemCount: notes.length,
                   itemBuilder: (context, index) => Padding(
@@ -28,7 +28,12 @@ class NotesView extends StatelessWidget {
                     ),
                   ),
                 )
-              : CustomCircularProgressIndicator(),
+              : const Center(
+                  child: Text(
+                    "No Notes Yet !",
+                    style: TextStyle(color: Colors.white, fontSize: 20),
+                  ),
+                ),
         );
       },
     );

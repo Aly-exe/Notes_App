@@ -51,7 +51,7 @@ class NoteBox extends StatelessWidget {
                   onPressed: () async{
                     // await note.delete();
                     context.read<NoteCubit>().deleteOneNote(note);
-                    context.read<NoteCubit>().getAllNotes;
+                    context.read<NoteCubit>().getAllNotes();
                   },
                   icon: FaIcon(
                     FontAwesomeIcons.trash,

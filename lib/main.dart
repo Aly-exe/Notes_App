@@ -5,11 +5,15 @@ import 'package:notes_app/models/note_bloc_observer.dart';
 import 'package:notes_app/models/note_model.dart';
 import 'package:notes_app/view/home_screen.dart';
 
-void main ()async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  Bloc.observer =NoteAppBlocObserver();
+  Bloc.observer = NoteAppBlocObserver();
   await Hive.initFlutter();
-  Hive.registerAdapter(NoteModelAdapter());
+  //   Hive.registerAdapter(NoteModelAdapter());
+  if (!Hive.isAdapterRegistered(0)) {
+    // prevent duplicate registration
+    Hive.registerAdapter(NoteModelAdapter());
+  }
   await Hive.openBox<NoteModel>("Notes_Box");
   runApp(NotesApp());
 }
@@ -23,10 +27,7 @@ class NotesApp extends StatelessWidget {
       title: "Notes App",
       debugShowCheckedModeBanner: false,
       home: HomeScreen(),
-      theme: ThemeData(
-        fontFamily: "Poppins" ,
-        brightness: Brightness.dark
-      ),
+      theme: ThemeData(fontFamily: "Poppins", brightness: Brightness.dark),
     );
   }
 }
