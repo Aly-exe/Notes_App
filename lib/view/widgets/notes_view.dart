@@ -14,7 +14,7 @@ class NotesView extends StatelessWidget {
       builder: (context, state) {
         List<NoteModel> notes = context.read<NoteCubit>().notes;
         return Expanded(
-          child: state is SuccessGetAllNotes
+          child: notes.length>=1
               ? ListView.builder(
                   itemCount: notes.length,
                   itemBuilder: (context, index) => Padding(

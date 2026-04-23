@@ -38,4 +38,10 @@ class NoteCubit extends Cubit<NoteState> {
       emit(failedDeleteNoteState(e.toString()));
     }
   }
+
+  void deleteOneNote(NoteModel note)async{
+    await note.delete();
+    getAllNotes();
+    emit(SuccesDeleteNoteState());
+  }
 }
