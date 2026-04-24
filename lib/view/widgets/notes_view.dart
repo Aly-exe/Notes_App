@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes_app/cubit/cubit/note_cubit.dart';
 import 'package:notes_app/models/note_model.dart';
-import 'package:notes_app/view/widgets/custom_circular_progress_indicator.dart';
 import 'package:notes_app/view/widgets/note_box.dart';
 
 class NotesView extends StatelessWidget {
@@ -28,7 +27,7 @@ class NotesView extends StatelessWidget {
                     ),
                   ),
                 )
-              : const Center(
+              :  Center(
                   child: Text(
                     "No Notes Yet !",
                     style: TextStyle(color: Colors.white, fontSize: 20),

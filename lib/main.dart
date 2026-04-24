@@ -9,11 +9,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   Bloc.observer = NoteAppBlocObserver();
   await Hive.initFlutter();
-  //   Hive.registerAdapter(NoteModelAdapter());
-  if (!Hive.isAdapterRegistered(0)) {
-    // prevent duplicate registration
     Hive.registerAdapter(NoteModelAdapter());
-  }
   await Hive.openBox<NoteModel>("Notes_Box");
   runApp(NotesApp());
 }
