@@ -22,4 +22,3 @@ final class failedDeleteNoteState extends NoteState {
     final String? errorMessage;
     failedDeleteNoteState(this.errorMessage);
 }
-

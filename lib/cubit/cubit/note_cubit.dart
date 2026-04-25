@@ -27,21 +27,16 @@ class NoteCubit extends Cubit<NoteState> {
     emit(SuccessGetAllNotes());
   }
 
-  Future deleteNote(dynamic note) async {
-    var noteBox = Hive.box<NoteModel>("Notes_Box");
-    try {
-      await noteBox.delete(note);
-
-      getAllNotes();
-      emit(SuccesDeleteNoteState());
-    } catch (e) {
-      emit(failedDeleteNoteState(e.toString()));
-    }
-  }
 
   void deleteOneNote(NoteModel note)async{
     await note.delete();
     getAllNotes();
     emit(SuccesDeleteNoteState());
+  }
+
+  Future<void> editNote(NoteModel note)async{
+    await note.save();
+    getAllNotes();
+    emit(SuccesfullEditNoteState());
   }
 }
