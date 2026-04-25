@@ -8,11 +8,11 @@ import 'package:notes_app/view/home_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  Bloc.observer = NoteAppBlocObserver();
   await Hive.initFlutter();
-    Hive.registerAdapter(NoteModelAdapter());
+  Bloc.observer = NoteAppBlocObserver();
+  Hive.registerAdapter(NoteModelAdapter());
   await Hive.openBox<NoteModel>("Notes_Box");
-  runApp(NotesApp());
+  runApp(const NotesApp());
 }
 
 class NotesApp extends StatelessWidget {
@@ -21,11 +21,11 @@ class NotesApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-    create: (context) => NoteCubit()..getAllNotes(),
+      create: (context) => NoteCubit()..getAllNotes(),
       child: MaterialApp(
         title: "Notes App",
         debugShowCheckedModeBanner: false,
-        home: HomeScreen(),
+        home: const HomeScreen(),
         theme: ThemeData(fontFamily: "Poppins", brightness: Brightness.dark),
       ),
     );
