@@ -12,21 +12,18 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: BlocProvider(
-        create: (context) => NoteCubit()..getAllNotes(),
-        child: Scaffold(
-          backgroundColor: Color(0xff2F2F2E),
-          body: Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Column(
-              children: [CustomAppBar(
-                title: "Note",
-                icon: FontAwesomeIcons.search,
-              ), SizedBox(height: 16), NotesView()],
-            ),
+      child: Scaffold(
+        backgroundColor: Color(0xff2F2F2E),
+        body: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            children: [CustomAppBar(
+              title: "Note",
+              icon: FontAwesomeIcons.search,
+            ), SizedBox(height: 16), NotesView()],
           ),
-          floatingActionButton: CustomFloatingActionBottom(),
         ),
+        floatingActionButton: CustomFloatingActionBottom(),
       ),
     );
   }
