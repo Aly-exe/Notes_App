@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:notes_app/cubit/cubit/note_cubit.dart';
 import 'package:notes_app/view/widgets/custom_appbar.dart';
 import 'package:notes_app/view/widgets/custom_floatingAction_button.dart';
@@ -18,7 +19,10 @@ class HomeScreen extends StatelessWidget {
           body: Padding(
             padding: const EdgeInsets.all(16.0),
             child: Column(
-              children: [Custom_AppBar(), SizedBox(height: 16), NotesView()],
+              children: [CustomAppBar(
+                title: "Note",
+                icon: FontAwesomeIcons.search,
+              ), SizedBox(height: 16), NotesView()],
             ),
           ),
           floatingActionButton: CustomFloatingActionBottom(),
